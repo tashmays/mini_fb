@@ -4,15 +4,18 @@
     <hr />
 <% end %>
 <%= form_for @user do |f| %>
-    <%= f.label :first_name %>
+    <%= f.label :first_name %>:
     <%= f.text_field :first_name %>
-
-    <%= f.label :last_name %>
+    <br />
+    <br />
+    <%= f.label :last_name %>:
     <%= f.text_field :last_name %>
-
-    <%= f.label :email %>
+    <br />
+    <br />
+    <%= f.label :email %>:
     <%= f.text_field :email %>
-    
+    <br />
+    <br />
     <%= f.submit "Submit"%>
 
 <% end %>

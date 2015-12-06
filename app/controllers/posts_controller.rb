@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
 
-
   def show
   	@post = Post.find(params[:id])
   	if params[:user_id]

@@ -6,11 +6,14 @@
 
 <%= form_for @post do |f| %>
 
-    <%= f.label :body %>
+    <%= f.label :body %>:
     <%= f.text_field :body %>
 
     <%= f.hidden_field :user_id, value: params[:user_id] %>
-    
+
+    <br />
+    <br />
+
     <%= f.submit "Submit" %>
 
 <% end %>

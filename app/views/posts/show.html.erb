@@ -6,20 +6,18 @@
 
 <h2><%= @post.body %></h2>
 
-<%= link_to "Add A Comment", new_comment_path(user_id: @user.id, post_id: @post.id) %>
-
 <% if @comment.any? %>
  <ul>
    <% @comment.each do |comment| %>
      <li>
-       <%= comment.body %>
-       <h2>by <%= "#{User.find(comment.user_id).first_name} #{User.find(comment.user_id).last_name}" %></h2>
-       <br />
-       <br />
+       <h3><%= comment.body %></h3>
+       <h4>by: <%= "#{User.find(comment.user_id).first_name} #{User.find(comment.user_id).last_name}" %></h4>
+       
        <%= link_to 'Edit Comment', edit_comment_path(comment, user_id: @user.id, post_id: @post.id), method: :get %> 
+       |
+       <%= link_to 'Delete Comment', comment_path(comment, user_id: @user.id, post_id: @post.id), method: :delete, data: {confirm: 'Delete this comment?'} %>
        <br />
        <br />
-       <%= link_to 'Delete Comment', comment_path(comment, user_id: @user.id, post_id: @post.id), method: :delete, data: {confirm: 'Delete this comment'} %>
      </li>
    <% end %>
  </ul>
@@ -27,3 +25,9 @@
 <% else %>
  <h3>No comments to show</h3>
 <% end %>
+
+<hr />
+
+<h2><%= link_to "Add A Comment", new_comment_path(user_id: @user.id, post_id: @post.id) %></h2>
+<h2><%= link_to "Back To Posts" %></h2>
+<h2><%= link_to "Back To Users", users_path %></h2>
