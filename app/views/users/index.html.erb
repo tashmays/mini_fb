@@ -1,0 +1,17 @@
+<h1>Welcome to Facebook</h1>
+<!-- <p>Find me in app/views/users/index.html.erb</p> -->
+<% if @users.any? %>
+	<% @users.each do |user| %>
+		<h2><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></h2>
+		<p><%= user.email %></p>
+	
+		<%= link_to 'Edit', edit_user_path(user) %>
+		<%= link_to 'Delete', user_path(user), method: :delete %>
+	<% end %>
+<% else %>
+	<h3>No Users</h3>
+<% end %>
+<hr />
+
+<%= link_to 'New User', new_user_path %>
+<br />

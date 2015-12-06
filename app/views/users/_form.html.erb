@@ -1,0 +1,18 @@
+<% if @user.errors.any? %>
+    <h4>Errors:</h4>
+    <p><%=@user.errors.full_messages.join(', ')%></p>
+    <hr />
+<% end %>
+<%= form_for @user do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    
+    <%= f.submit "Submit"%>
+
+<% end %>
