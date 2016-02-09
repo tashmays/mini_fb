@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
 
+	def index
+		@user = User.find(params[:user_id])
+		@posts = @user.posts
+	end
+
   def show
   	@post = Post.find(params[:id])
   	if params[:user_id]
@@ -17,7 +22,7 @@ class PostsController < ApplicationController
   def create
   	  @post = Post.new(post_params)
   		if @post.save
-  			redirect_to user_path(@post.user_id)
+  			redirect_to user_posts_path(@post)
   		else
   			render :new 
   		end

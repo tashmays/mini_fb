@@ -4,12 +4,10 @@
     <hr />
 <% end %>
 
-<%= form_for @post do |f| %>
+<%= form_for [@user, @post] do |f| %>
 
     <%= f.label :body %>:
     <%= f.text_field :body %>
-
-    <%= f.hidden_field :user_id, value: params[:user_id] %>
 
     <br />
     <br />
